@@ -1,0 +1,33 @@
+@import '../assets/less/color.less';
+
+.file-upload-file-item {
+  padding: 0 8px;
+  margin-top: 8px;
+  color: @text-color-secondary;
+  display: flex;
+  cursor: pointer;
+
+  &.error {
+    color: @error-color;
+  }
+
+  &.active {
+    background: fade(@primary-color, 15%);
+  }
+
+  &:hover {
+    background: @disabled-bg;
+  }
+
+  .file-upload-file-item-file-name {
+    flex: 1;
+  }
+
+  a {
+    margin-left: 10px;
+  }
+}
+
+.ant-upload-hint {
+  color: @text-color-secondary;
+}

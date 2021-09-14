@@ -1,0 +1,110 @@
+@import '../assets/less/color.less';
+
+.ant-statistic.g-statistic {
+  line-height: 1;
+
+  .ant-statistic-content-prefix {
+    font-size: 12px;
+    margin-right: 0;
+  }
+}
+
+.ant-statistic.g-statistic-sm {
+  line-height: 14px;
+
+  .ant-statistic-content-value-int,
+  .ant-statistic-content-value-decimal {
+    font-size: 14px;
+  }
+}
+
+.ant-statistic.g-statistic-md {
+  line-height: 16px;
+
+  .ant-statistic-content-prefix {
+    font-size: 12px;
+  }
+
+  .ant-statistic-content-value-int,
+  .ant-statistic-content-value-decimal {
+    font-size: 16px;
+  }
+}
+
+.ant-statistic.g-statistic-lg {
+  .ant-statistic-content-prefix {
+    font-size: 12px;
+  }
+
+  .ant-statistic-content-value-int,
+  .ant-statistic-content-value-decimal {
+    font-size: 24px;
+  }
+}
+
+.g-statistic-bold {
+  .ant-statistic-content-prefix,
+  .ant-statistic-content-value-int,
+  .ant-statistic-content-value-decimal {
+    font-weight: bold;
+  }
+}
+
+.g-statistic-orange {
+  .ant-statistic-content-prefix,
+  .ant-statistic-content-value {
+    color: #f77f00;
+  }
+}
+
+.g-statistic-green {
+  .ant-statistic-content-prefix,
+  .ant-statistic-content-value {
+    color: @success-color;
+  }
+}
+
+.g-statistic-red {
+  .ant-statistic-content-prefix,
+  .ant-statistic-content-value {
+    color: @error-color;
+  }
+}
+
+.g-statistic-primary {
+  .ant-statistic-content-prefix,
+  .ant-statistic-content-value {
+    color: @primary-color;
+  }
+}
+
+.g-statistic-horizontal {
+  display: inline-block;
+}
+
+.g-money-input-fix {
+  line-height: 30px;
+  border: 1px solid @border-color-base;
+  text-align: center;
+  padding: 0 11px;
+}
+
+.g-money-input-addon {
+  padding: 0 11px;
+  line-height: 30px;
+  background-color: @descriptions-bg;
+  border: 1px solid @border-color-base;
+  text-align: center;
+}
+
+.g-money-input-number-before {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: none;
+}
+
+.g-money-input-number-after {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+}
