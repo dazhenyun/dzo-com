@@ -203,7 +203,7 @@ const mapTypeToComponent = {
     WrappedComponent: TextArea,
     defaultProps: {
       placeholder: '请输入',
-      maxLength: 128,
+      // maxLength: 128,
       autoSize: { minRows: 2, maxRows: 6 },
     },
   },
