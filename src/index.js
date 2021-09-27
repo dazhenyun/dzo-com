@@ -8,6 +8,7 @@ import ModalForm from './ModalForm';
 import FileUpload from './Upload';
 import SearchTree from './SearchTree';
 import Money from './Money';
+import Ellipsis from './Ellipsis';
 
 export {
   ComIcon,
@@ -20,4 +21,5 @@ export {
   FileUpload,
   SearchTree,
   Money,
+  Ellipsis,
 };
