@@ -40,7 +40,8 @@ TableBtns
 | 参数      | 说明                                                               | 类型   | 默认值 | 版本 |
 | --------- | ------------------------------------------------------------------ | ------ | ------ | ---- |
 | type      | iconfont 的命名,必填                                               | string | -      | -    |
-| onClick   | 点击事件                                                           | func   | -      | -    |
+| prefix    | iconfont 前缀                                                      | string | icon-  | -    |
 | className | 样式, **如果发现颜色设置无效时，需在 iconfont 的官网设置批量去色** | string | -      | -    |
 | style     | 内联样式                                                           | obj    | -      | -    |
 | ...       | svg 支持的属性                                                     | -      | -      | -    |
+| onClick   | 点击事件                                                           | func   | -      | -    |
