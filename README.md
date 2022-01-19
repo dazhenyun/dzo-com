@@ -37,3 +37,4 @@ $ npm run release
 ## 历史版本信息
 
 - 1.0.2 新增 Ellipsis 组件
+- 1.0.5 修复 GForm 的 hideInForm = true Col 占位

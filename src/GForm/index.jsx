@@ -170,7 +170,10 @@ const GForm = props => {
           <Row gutter={gutter}>
             {formSet &&
               formSet.map(itemSet => {
-                const { column: itemColumn } = itemSet;
+                const { column: itemColumn, hideInForm } = itemSet;
+                if (hideInForm) {
+                  return null;
+                }
                 const span = Math.min(
                   Number.isNaN(Number(itemColumn)) ? 1 : itemColumn,
                   column,
