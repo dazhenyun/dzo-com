@@ -14,6 +14,7 @@ export default () => {
         type: 'input',
         label: '用户名',
         name: 'username',
+        hideInForm: true,
       },
       {
         type: 'password',

@@ -81,6 +81,32 @@ const buttons = [
 export default () => <TableBtns buttons={buttons} />;
 ```
 
+## 单个操作按钮
+
+Demo:
+
+```jsx
+import React from 'react';
+import { message } from 'antd';
+import { TableBtns } from '@dzo/com';
+
+const AuthBtn = {
+  name: '编辑',
+  type: 'button',
+  props: {
+    type: 'primary',
+  },
+  method: () => {
+    message.success('设置点击事件');
+  },
+};
+export default () => (
+  <>
+    <TableBtns.AuthBtn {...AuthBtn} />
+  </>
+);
+```
+
 ## API
 
 TableBtns

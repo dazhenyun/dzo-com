@@ -24,6 +24,7 @@ export const complexForm = [
     type: 'password',
     name: 'password',
     label: '密码框',
+    hideInForm: true,
     validOptions: {
       rules: [
         {

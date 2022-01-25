@@ -4,6 +4,8 @@ import LinkBtn from './components/LinkBtn';
 import MoreBtn from './components/MoreBtn';
 import NormalBtn from './components/NormalBtn';
 import StatusBtn from './components/StatusBtn';
+import ButtonBtn from './components/ButtonBtn';
+import AuthBtn from './AuthBtn';
 import './index.less';
 
 const TableBtns = ({ buttons = [] }) => {
@@ -47,6 +49,9 @@ const TableBtns = ({ buttons = [] }) => {
     if (type === 'status') {
       return <StatusBtn key={key || rest.status} {...props} />;
     }
+    if (type === 'button') {
+      return <ButtonBtn key={key} {...props} />;
+    }
     return <NormalBtn key={key} {...props} type={type} />;
   });
 };
@@ -54,5 +59,6 @@ const TableBtns = ({ buttons = [] }) => {
 TableBtns.defaultProps = {
   buttons: [], // 按钮列表
 };
+TableBtns.AuthBtn = AuthBtn;
 
 export default TableBtns;

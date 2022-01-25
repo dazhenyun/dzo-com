@@ -38,3 +38,4 @@ $ npm run release
 
 - 1.0.2 新增 Ellipsis 组件
 - 1.0.5 修复 GForm 的 hideInForm = true Col 占位
+- 1.0.6 TableBtns 新增单个按钮
