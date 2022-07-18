@@ -38,5 +38,5 @@ $ npm run release
 
 - 1.0.2 新增 Ellipsis 组件
 - 1.0.5 修复 GForm 的 hideInForm = true Col 占位
-- 1.0.6 TableBtns 新增单个按钮
-- 1.0.9 SearchTree 新增默认参数`defaultExpand = true`是否展开字节点
+- 1.0.8 TableBtns 新增单个按钮
+- 1.0.9 SearchTree 新增默认参数`expandedLevel = null`时不展开字节点

@@ -17,6 +17,7 @@ const buttons = [
   {
     type: 'confirm',
     name: '删除',
+    confirmText: '确认删除',
     method: () => {
       message.success('删除点击事件');
     },
@@ -24,6 +25,7 @@ const buttons = [
   {
     type: 'download',
     name: '下载',
+    tooltip: '下载',
     fileName: 'test.csv',
     pathname: 'http://www.baidu.com',
   },
@@ -59,6 +61,7 @@ const buttons = [
       {
         type: 'download',
         name: '下载1',
+
         auth: false,
         fileName: 'test.csv',
         pathname: 'http://www.baidu.com',
@@ -87,7 +90,8 @@ Demo:
 
 ```jsx
 import React from 'react';
-import { message } from 'antd';
+import { DownloadOutlined } from '@ant-design/icons';
+import { message, Space } from 'antd';
 import { TableBtns } from '@dzo/com';
 
 const AuthBtn = {
@@ -100,9 +104,27 @@ const AuthBtn = {
     message.success('设置点击事件');
   },
 };
+
+const AuthBtnIcon = {
+  name: '',
+  type: 'button',
+  tooltip: '下载',
+  props: {
+    type: 'link',
+    icon: <DownloadOutlined />,
+  },
+  method: () => {
+    message.success('设置点击事件');
+  },
+};
+
 export default () => (
   <>
-    <TableBtns.AuthBtn {...AuthBtn} />
+    <Space>
+      <TableBtns.AuthBtn {...AuthBtn} />
+      <TableBtns.AuthBtn {...AuthBtn} type="text" />
+      <TableBtns.AuthBtn {...AuthBtnIcon} />
+    </Space>
   </>
 );
 ```
@@ -125,3 +147,9 @@ TableBtns
 | status      | 当前状态，1 为启用，0 为停用，type 为 status 时有效，必填 | string  | -                    |      |
 | textEnum    | 0、1 对应的文案，type 为 status 时有效，必填              | obj     | {0:'停用'，1:'启用'} |      |
 | children    | type 为 more 时有效，必填                                 | []      | -                    |      |
+
+TableBtns.AuthBtn
+
+| 参数    | 说明                                                | 类型   | 默认值 | 版本 |
+| ------- | --------------------------------------------------- | ------ | ------ | ---- |
+| tooltip | 支持提示类型（link,confirm,download,status,button） | string | -      |      |

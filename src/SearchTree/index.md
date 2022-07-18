@@ -39,7 +39,7 @@ export default () => {
     <SearchTree
       treeData={treeData}
       iconRender={() => <FolderOutlined />}
-      defaultExpand={false}
+      expandedLevel={null}
     />
   );
 };
@@ -105,7 +105,7 @@ export default () => {
   return (
     <div style={{ width: 300, borderRight: 'solid 1px #f0f5f5', padding: 20 }}>
       <SearchTree
-        defaultExpand={false}
+        expandedLevel={null}
         toolBarRender={() => (
           <TreeBreadCrumb
             title="我是标题"

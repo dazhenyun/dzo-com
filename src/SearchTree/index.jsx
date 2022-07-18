@@ -50,7 +50,6 @@ SearchTree.defaultProps = {
   onRightClickRender: null, // 右键菜单渲染
   toolBarRender: null,
   getPopupContainer: null, //
-  defaultExpand: true,
 };
 
 SearchTree.TreeBreadCrumb = TreeBreadCrumb;

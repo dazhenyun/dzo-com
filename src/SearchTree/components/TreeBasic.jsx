@@ -30,8 +30,7 @@ function TreeBasic({
   containerRef,
   popoverProps,
   selectedKeys,
-  expandedLevel = 1, // 默认展开第几层
-  defaultExpand = true, // 默认展开
+  expandedLevel = 1, // 默认展开第几层 null: 默认关闭，不展开
   ...restProps
 }) {
   const {
@@ -46,6 +45,8 @@ function TreeBasic({
   const [selfCheckedKeys, setSelfCheckedKeys] = useState([]);
   const [coordInfo, setCoordInfo] = useState({});
   const rightPanelRef = useRef();
+
+  console.log('expandedLevel  ', expandedLevel);
 
   const dataList = useMemo(
     () => getDataList(treeData, keyField, nameField, childrenField),
@@ -85,9 +86,8 @@ function TreeBasic({
           el.children?.length,
       )
       .map(el => el[keyField]);
-    // return [];  // 默认不展开
-    // v1.0.9 defaultExpand: 是否展开字节点，默认展开
-    return defaultExpand ? eKeys : [];
+    // v1.0.9 expandedLevel: 是否展开字节点，默认展开
+    return expandedLevel ? eKeys : [];
   }, [treeData]);
 
   // 根据搜索内容查找符合的key
