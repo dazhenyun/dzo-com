@@ -5,6 +5,7 @@ import MoreBtn from './components/MoreBtn';
 import NormalBtn from './components/NormalBtn';
 import StatusBtn from './components/StatusBtn';
 import ButtonBtn from './components/ButtonBtn';
+import { Tooltip } from 'antd';
 import './index.less';
 
 const AuthBtn = ({
@@ -12,14 +13,17 @@ const AuthBtn = ({
   auth = true, // 按钮权限
   name, // 按钮名称
   type, // 类型 link,confirm,download,status
+  props,
+  tooltip = '',
   ...rest
 }) => {
   if (hide) return null;
 
   // 判断权限
   const className = `table-btn ${auth ? '' : 'disabled'}`;
-  const key = name || rest.status || '更多';
-  const props = {
+  const key = name || rest.status || '';
+  const newProps = {
+    ...props,
     ...rest,
     className,
     name: key,
@@ -33,22 +37,33 @@ const AuthBtn = ({
     );
   }
 
-  if (type === 'download') {
-    return <DownloadBtn key={key} {...props} />;
-  }
-  if (type === 'link') {
-    return <LinkBtn key={key} {...props} />;
-  }
   if (type === 'more') {
     return <MoreBtn key={key} {...props} />;
   }
-  if (type === 'status') {
-    return <StatusBtn key={key || rest.status} {...props} />;
+
+  let children = null;
+
+  //支持Tooltip提示
+  const BaseBtn = {
+    download: <DownloadBtn key={key} {...newProps} />,
+    link: <LinkBtn key={key} {...newProps} />,
+    status: <StatusBtn key={key} {...newProps} />,
+    button: <ButtonBtn key={key} {...newProps} />,
+  };
+
+  if (BaseBtn?.[type]) {
+    children = BaseBtn[type];
+  } else {
+    children = <NormalBtn key={key} {...newProps} type={type} />;
   }
-  if (type === 'button') {
-    return <ButtonBtn key={key} {...props} />;
-  }
-  return <NormalBtn key={key} {...props} type={type} />;
+
+  return tooltip ? (
+    <Tooltip placement="top" title={tooltip}>
+      {children}
+    </Tooltip>
+  ) : (
+    children
+  );
 };
 
 AuthBtn.defaultProps = {
