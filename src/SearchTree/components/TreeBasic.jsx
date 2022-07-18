@@ -121,7 +121,7 @@ function TreeBasic({
       setExpandedKeys(uniq([...expandedKeys, ...selectedParentkeys]));
       setAutoExpandParent(false);
     }
-  }, [treeData, selectedKeys]); // 当前选中的都默认展开
+  }, [treeData, selectedKeys, searchValue]); // 当前选中的都默认展开
 
   // 点击事件
   const onSelfSelect = (sKeys, { node }) => {
