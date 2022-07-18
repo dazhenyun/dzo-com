@@ -46,8 +46,6 @@ function TreeBasic({
   const [coordInfo, setCoordInfo] = useState({});
   const rightPanelRef = useRef();
 
-  console.log('expandedLevel  ', expandedLevel);
-
   const dataList = useMemo(
     () => getDataList(treeData, keyField, nameField, childrenField),
     [treeData],
