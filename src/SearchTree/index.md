@@ -36,7 +36,11 @@ const treeData = [
 
 export default () => {
   return (
-    <SearchTree treeData={treeData} iconRender={() => <FolderOutlined />} />
+    <SearchTree
+      treeData={treeData}
+      iconRender={() => <FolderOutlined />}
+      defaultExpand={false}
+    />
   );
 };
 ```
@@ -101,6 +105,7 @@ export default () => {
   return (
     <div style={{ width: 300, borderRight: 'solid 1px #f0f5f5', padding: 20 }}>
       <SearchTree
+        defaultExpand={false}
         toolBarRender={() => (
           <TreeBreadCrumb
             title="我是标题"

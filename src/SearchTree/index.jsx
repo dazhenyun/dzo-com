@@ -49,7 +49,8 @@ SearchTree.defaultProps = {
   onTreeNodeTitle: null, // 给结点标题绑定属性
   onRightClickRender: null, // 右键菜单渲染
   toolBarRender: null,
-  getPopupContainer: null, // 渲染节点
+  getPopupContainer: null, //
+  defaultExpand: true,
 };
 
 SearchTree.TreeBreadCrumb = TreeBreadCrumb;

@@ -31,6 +31,7 @@ function TreeBasic({
   popoverProps,
   selectedKeys,
   expandedLevel = 1, // 默认展开第几层
+  defaultExpand = true, // 默认展开
   ...restProps
 }) {
   const {
@@ -84,7 +85,9 @@ function TreeBasic({
           el.children?.length,
       )
       .map(el => el[keyField]);
-    return eKeys;
+    // return [];  // 默认不展开
+    // v1.0.9 defaultExpand: 是否展开字节点，默认展开
+    return defaultExpand ? eKeys : [];
   }, [treeData]);
 
   // 根据搜索内容查找符合的key
