@@ -310,6 +310,86 @@ export default () => {
 };
 ```
 
+## 异步资源加载
+
+```jsx
+import React, { useState } from 'react';
+import { FolderOutlined, FileTextOutlined } from '@ant-design/icons';
+import { SearchTree } from '@dzo/com';
+
+const initTreeData = [
+  {
+    key: '1',
+    title: '文件夹1',
+  },
+  {
+    key: '2',
+    title: '文件夹2',
+  },
+  {
+    key: '3',
+    title: '文件夹3',
+  },
+];
+
+export default () => {
+  const [treeData, setTreeData] = useState(initTreeData);
+  const [expandedKeys, setExpandedKeys] = useState([]);
+
+  const updateTreeData = (list, key, children) =>
+    list.map(node => {
+      if (node.key === key) {
+        return { ...node, children };
+      }
+
+      if (node.children) {
+        return {
+          ...node,
+          children: updateTreeData(node.children, key, children),
+        };
+      }
+
+      return node;
+    });
+
+  const onLoadData = ({ key, children }) =>
+    new Promise(resolve => {
+      if (children) {
+        resolve();
+        return;
+      }
+
+      setTimeout(() => {
+        setTreeData(origin =>
+          updateTreeData(origin, key, [
+            {
+              title: 'Child Node',
+              key: `${key}-0`,
+            },
+            {
+              title: 'Child Node',
+              key: `${key}-1`,
+            },
+          ]),
+        );
+        resolve();
+      }, 1000);
+    });
+
+  return (
+    <SearchTree
+      showLine
+      loadData={onLoadData}
+      treeData={treeData}
+      onExpand={keys => {
+        setExpandedKeys(keys);
+      }}
+      expandedKeys={expandedKeys}
+    />
+  );
+};
+```
+
 ## API
 
 SearchTree

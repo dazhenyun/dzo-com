@@ -31,6 +31,7 @@ function TreeBasic({
   popoverProps,
   selectedKeys,
   expandedLevel = 1, // 默认展开第几层 null: 默认关闭，不展开
+  showLine = false,
   ...restProps
 }) {
   const {
@@ -231,7 +232,7 @@ function TreeBasic({
           key={item[keyField]}
           icon={iconRender?.(item)}
           title={title}
-          isLeaf
+          isLeaf={!showLine}
           {...nodeProps}
         />
       ) : null;
@@ -274,6 +275,7 @@ function TreeBasic({
           onCheck={onSelfCheck}
           selectedKeys={selectedKeys}
           onSelect={onSelfSelect}
+          showLine={showLine}
           showIcon
           {...restProps}
         >
