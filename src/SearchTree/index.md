@@ -403,7 +403,8 @@ SearchTree
 | search                | 是否支持搜索                                                     | bool      | true   |      |
 | renameKey             | 重命名的 key                                                     | string    | -      |      |
 | onRename              | 重命名回调 (value,node)=>{}                                      | func      | -      |      |
-| onSelect              | 点击事件 (keys,node)=>{}                                         | func      | -      |      |
+| onSelect              | 点击事件 (keys,node,e)=>{}                                       | func      | -      |      |
+| onCheck               | 多选事件 (keys,e)=>{}                                            | func      | -      |      |
 | iconRender            | 数据节点的 icon 展示 (node,isExpand)=>{}                         | func      | -      |      |
 | onTreeNode            | 给数据节点绑定属性，参考 antd TreeNode 属性 (node)=>({...props}) | func      | -      |      |
 | onTreeNodeTitle       | 给数据节点的 title 绑定属性 (node)=>({...props})                 | func      | -      |      |

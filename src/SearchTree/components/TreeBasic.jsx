@@ -125,7 +125,7 @@ function TreeBasic({
   }, [treeData, selectedKeys, searchValue]); // 当前选中的都默认展开
 
   // 点击事件
-  const onSelfSelect = (sKeys, { node }) => {
+  const onSelfSelect = (sKeys, { selected, node, selectedNodes, event }) => {
     const { eventKey } = node.props;
     const item = dataList.filter(el => eventKey === String(el.key))[0] || {};
     let newKeys = [...expandedKeys];
@@ -138,7 +138,7 @@ function TreeBasic({
       setExpandedKeys(newKeys);
       setAutoExpandParent(false);
     }
-    onSelect?.(sKeys, item);
+    onSelect?.(sKeys, item, { selected, node, selectedNodes, event });
   };
 
   // 右键点击
@@ -157,9 +157,9 @@ function TreeBasic({
     }
   };
 
-  const onSelfCheck = keys => {
+  const onSelfCheck = (keys, e) => {
     setSelfCheckedKeys(keys);
-    onCheck?.(keys);
+    onCheck?.(keys, e);
   };
 
   const menuBtns = useMemo(

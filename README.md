@@ -41,4 +41,5 @@ $ npm run release
 - 1.0.8 TableBtns 新增单个按钮
 - 1.1.0 SearchTree 新增默认参数`expandedLevel = null`时不展开字节点，搜索清空默认展示选中的父级节点
 - 1.1.1 npm 发布命令修改`npm run release`(会导致提交成功但是提示错误)中原先`npm run publish`改为`npm run pub`
-- 1.1.4 修复 searchTree 组件不支持 loadData 异步加载数据
+- 1.1.4 修复 SearchTree 组件不支持 loadData 异步加载数据
+- 1.1.5 修复 SearchTree 组件 onSelect，onCheck 丢失原始参数

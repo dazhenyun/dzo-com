@@ -118,12 +118,52 @@ const AuthBtnIcon = {
   },
 };
 
+const AuthBtnMore = {
+  type: 'more',
+  children: [
+    {
+      name: '编辑1',
+      method: () => {
+        message.success('设置点击事件');
+      },
+    },
+    {
+      type: 'confirm',
+      name: '删除1',
+      method: () => {
+        message.success('删除点击事件');
+      },
+    },
+    {
+      type: 'download',
+      name: '下载1',
+
+      auth: false,
+      fileName: 'test.csv',
+      pathname: 'http://www.baidu.com',
+    },
+    {
+      type: 'link',
+      name: '链接1',
+      pathname: 'http://www.baidu.com',
+    },
+    {
+      type: 'status',
+      status: 1, // 默认0 1 切换
+      method: v => {
+        console.log(v);
+      },
+    },
+  ],
+};
+
 export default () => (
   <>
     <Space>
       <TableBtns.AuthBtn {...AuthBtn} />
       <TableBtns.AuthBtn {...AuthBtn} type="text" />
       <TableBtns.AuthBtn {...AuthBtnIcon} />
+      <TableBtns.AuthBtn {...AuthBtnMore} />
     </Space>
   </>
 );
