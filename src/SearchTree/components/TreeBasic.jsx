@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo, useRef } from 'react';
 import { Tree, Input, Empty } from 'antd';
 import { uniq } from 'lodash';
-import { useClickOutside, useScroll } from '../../hooks';
+import { useClickOutside, useScroll, useClipboard } from '../../hooks';
 import RightMenuPop from './RightMenuPanel';
 import SearchEmpty from './SearchEmpty';
 import { getDataList } from './util';
@@ -39,6 +39,7 @@ function TreeBasic({
     nameField = 'title',
     keyField = 'key',
   } = modelKeys;
+  const [_, { copyToClipboard }] = useClipboard();
   const [expandedKeys, setExpandedKeys] = useState([]);
   const [renameKey, setRenameKey] = useState(null);
   const [autoExpandParent, setAutoExpandParent] = useState(true);
@@ -75,6 +76,10 @@ function TreeBasic({
   useScroll(containerRef, e => {
     clearRightClickRender();
   });
+
+  const onCopy = async text => {
+    return await copyToClipboard(text);
+  };
 
   // 默认展开对应层次的所有keys
   const expandLevelKeys = useMemo(() => {
@@ -152,8 +157,7 @@ function TreeBasic({
         x: event.clientX + 15,
         y: event.clientY + 15,
       });
-      // console.log(event, node, containerRef?.current?.getComputedStyle?.(), containerRef?.current?.clientHeight, containerRef?.current?.offsetY)
-      setRightClickItem(item);
+      setRightClickItem({ ...item, props: node });
     }
   };
 
@@ -169,11 +173,11 @@ function TreeBasic({
           item: rightClickItem,
           clearRightClickRender,
           setRenameKey,
+          onCopy,
         })) ||
       [],
     [rightClickItem, onRightClickRender],
   );
-
   const loop = data => {
     return data.map(item => {
       const hasChildren = item[childrenField];

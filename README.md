@@ -43,3 +43,4 @@ $ npm run release
 - 1.1.1 npm 发布命令修改`npm run release`(会导致提交成功但是提示错误)中原先`npm run publish`改为`npm run pub`
 - 1.1.4 修复 SearchTree 组件不支持 loadData 异步加载数据
 - 1.1.5 修复 SearchTree 组件 onSelect，onCheck 丢失原始参数
+- 1.1.6 新增 SearchTree 组件 onRightClickRender 方法新增 onCopy复制函数

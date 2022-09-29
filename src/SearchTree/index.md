@@ -179,7 +179,7 @@ export default () => {
 import React, { useState } from 'react';
 import { FolderOutlined, FileTextOutlined } from '@ant-design/icons';
 import { SearchTree } from '@dzo/com';
-import { Button } from 'antd';
+import { Button, message } from 'antd';
 
 const treeData = [
   {
@@ -234,6 +234,51 @@ export default () => {
           setCheckedKeys(keys);
         }}
         checkable
+        onRightClickRender={({
+          item,
+          clearRightClickRender,
+          setRenameKey,
+          onCopy,
+        }) => {
+          console.log('item', item);
+          return [
+            {
+              key: 'copy',
+              name: '复制',
+              onClick: async () => {
+                const result = await onCopy(item.title);
+                if (result) {
+                  message.success('已复制到剪贴板');
+                }
+              },
+            },
+            {
+              key: 'add',
+              name: '新增',
+              onClick: () => {
+                Modal.confirm({
+                  content: `新增`,
+                });
+              },
+            },
+            {
+              key: 'del',
+              name: '删除',
+              onClick: () => {
+                Modal.confirm({
+                  content: `确认删除${item?.title}？`,
+                });
+              },
+            },
+            {
+              key: 'rename',
+              name: '重命名',
+              onClick: () => {
+                setRenameKey(item.key);
+              },
+            },
+          ];
+        }}
       />
       <Button
         type="primary"
@@ -394,24 +439,24 @@ export default () => {
 
 SearchTree
 
-| 参数                  | 说明                                                             | 类型      | 默认值 | 版本 |
-| --------------------- | ---------------------------------------------------------------- | --------- | ------ | ---- |
-| title                 | 标题                                                             | string    | -      |      |
-| breadCrumbRightRender | 标题右边操作栏                                                   | func      | -      |      |
-| treeData              | 树状数据                                                         | array     | []     |      |
-| modelKeys             | 字段索引值转化                                                   | array     | []     |      |
-| search                | 是否支持搜索                                                     | bool      | true   |      |
-| renameKey             | 重命名的 key                                                     | string    | -      |      |
-| onRename              | 重命名回调 (value,node)=>{}                                      | func      | -      |      |
-| onSelect              | 点击事件 (keys,node,e)=>{}                                       | func      | -      |      |
-| onCheck               | 多选事件 (keys,e)=>{}                                            | func      | -      |      |
-| iconRender            | 数据节点的 icon 展示 (node,isExpand)=>{}                         | func      | -      |      |
-| onTreeNode            | 给数据节点绑定属性，参考 antd TreeNode 属性 (node)=>({...props}) | func      | -      |      |
-| onTreeNodeTitle       | 给数据节点的 title 绑定属性 (node)=>({...props})                 | func      | -      |      |
-| onRightClickRender    | 右键点击渲染 (node, clearRightClickRender, setRenameKey)=>{}     | func      | -      |      |
-| containerRef          | 外部滚动的 ReactNode,滚动时候去除右键菜单渲染                    | ReactNode | -      |      |
-| expandedLevel         | 默认展开第几层                                                   | num       | 1      |      |
-| 其它                  | 参考 antd Tree 组件属性                                          | obj       | -      |      |
+| 参数                  | 说明                                                                 | 类型      | 默认值 | 版本 |
+| --------------------- | -------------------------------------------------------------------- | --------- | ------ | ---- |
+| title                 | 标题                                                                 | string    | -      |      |
+| breadCrumbRightRender | 标题右边操作栏                                                       | func      | -      |      |
+| treeData              | 树状数据                                                             | array     | []     |      |
+| modelKeys             | 字段索引值转化                                                       | array     | []     |      |
+| search                | 是否支持搜索                                                         | bool      | true   |      |
+| renameKey             | 重命名的 key                                                         | string    | -      |      |
+| onRename              | 重命名回调 (value,node)=>{}                                          | func      | -      |      |
+| onSelect              | 点击事件 (keys,node,e)=>{}                                           | func      | -      |      |
+| onCheck               | 多选事件 (keys,e)=>{}                                                | func      | -      |      |
+| iconRender            | 数据节点的 icon 展示 (node,isExpand)=>{}                             | func      | -      |      |
+| onTreeNode            | 给数据节点绑定属性，参考 antd TreeNode 属性 (node)=>({...props})     | func      | -      |      |
+| onTreeNodeTitle       | 给数据节点的 title 绑定属性 (node)=>({...props})                     | func      | -      |      |
+| onRightClickRender    | 右键点击渲染 (node, clearRightClickRender, setRenameKey, onCopy)=>{} | func      | -      |      |
+| containerRef          | 外部滚动的 ReactNode,滚动时候去除右键菜单渲染                        | ReactNode | -      |      |
+| expandedLevel         | 默认展开第几层                                                       | num       | 1      |      |
+| 其它                  | 参考 antd Tree 组件属性                                              | obj       | -      |      |
 
 modelKeys
 
@@ -420,7 +465,3 @@ modelKeys
 | childrenField | 默认 children |
 | nameField     | 默认 title    |
 | keyField      | 默认 key      |
-
-## 非实时上传组件
-
-不支持预览、下载功能,输出值为 file 对象数组，有别于实时上传组件为字符串(多文件地址以分隔符分隔)
