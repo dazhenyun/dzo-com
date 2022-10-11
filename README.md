@@ -44,3 +44,4 @@ $ npm run release
 - 1.1.4 修复 SearchTree 组件不支持 loadData 异步加载数据
 - 1.1.5 修复 SearchTree 组件 onSelect，onCheck 丢失原始参数
 - 1.1.6 新增 SearchTree 组件 onRightClickRender 方法新增 onCopy 复制函数
+- 1.1.7 TableBtns.AuthBtn 组件修改 type=button 支持 confirm

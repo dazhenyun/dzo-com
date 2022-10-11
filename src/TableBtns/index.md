@@ -97,6 +97,20 @@ import { TableBtns } from '@dzo/com';
 const AuthBtn = {
   name: '编辑',
   type: 'button',
+
+  props: {
+    type: 'primary',
+  },
+  method: () => {
+    message.success('设置点击事件');
+  },
+};
+
+const AuthBtnDel = {
+  name: '删除',
+  type: 'button',
+  tooltip: '删除',
+  confirmText: '您确定要删除吗',
   props: {
     type: 'primary',
   },
@@ -160,6 +174,7 @@ const AuthBtnMore = {
 export default () => (
   <>
     <Space>
+      <TableBtns.AuthBtn {...AuthBtnDel} />
       <TableBtns.AuthBtn {...AuthBtn} />
       <TableBtns.AuthBtn {...AuthBtn} type="text" />
       <TableBtns.AuthBtn {...AuthBtnIcon} />
