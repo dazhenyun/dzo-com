@@ -76,11 +76,15 @@ function GFormItem({ itemSet, column, labelBasicSpan, layout }) {
   let children = null;
 
   if (componentType === 'custom' && renderChild) {
-    // 自定义组件
-    children =
-      typeof renderChild === 'object'
-        ? React.cloneElement(renderChild, { ...props })
-        : renderChild;
+    if (typeof renderChild === 'function') {
+      children = renderChild?.(itemSet);
+    } else {
+      // 自定义组件
+      children =
+        typeof renderChild === 'object'
+          ? React.cloneElement(renderChild, { ...props })
+          : renderChild;
+    }
   } else {
     const { WrappedComponent, defaultProps = {}, childStyle, SubComponent } =
       mapTypeToComponent[componentType] || {};

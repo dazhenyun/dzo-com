@@ -11,6 +11,7 @@ const DynamicFieldSet = ({
   hasHead = false,
   hasAdd = true,
   hasDel = true,
+  okButtonRender,
 }) => {
   return (
     <Form.List name={name}>
@@ -74,6 +75,7 @@ const DynamicFieldSet = ({
                         ...itemSet,
                         dataIndex: [field.name, dataIndex || name],
                         fieldKey,
+                        fieldIndex: i,
                         itemProps: {
                           colon: false,
                           wrapperCol: { span: 24 },
@@ -114,6 +116,8 @@ const DynamicFieldSet = ({
                 )}
               </Row>
             ))}
+
+            {okButtonRender?.({ fields, hasHead, add, remove })}
 
             {/* 新增按钮 */}
             {hasAdd && (

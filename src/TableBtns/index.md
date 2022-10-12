@@ -97,7 +97,6 @@ import { TableBtns } from '@dzo/com';
 const AuthBtn = {
   name: '编辑',
   type: 'button',
-
   props: {
     type: 'primary',
   },

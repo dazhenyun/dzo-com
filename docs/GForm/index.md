@@ -5,7 +5,7 @@
 ```jsx
 import React from 'react';
 import { Button } from 'antd';
-import { Form } from '@dzo/com';
+import { GForm } from '@dzo/com';
 
 export default () => {
   const props = {
