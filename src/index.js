@@ -11,6 +11,7 @@ import Money from './Money';
 import Ellipsis from './Ellipsis';
 import Icon from './Icon';
 import iconList from './Icon/iconList';
+import GDescriptions from './GDescriptions';
 
 export {
   ComIcon,
@@ -26,4 +27,5 @@ export {
   Ellipsis,
   Icon,
   iconList,
+  GDescriptions,
 };

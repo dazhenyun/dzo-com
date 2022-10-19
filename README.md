@@ -49,3 +49,6 @@ $ npm run release
 1. TableBtns.AuthBtn 组件修改 type=button 支持 confirm
 2. DynamicFieldSet 组件新增 okButtonRender 属性 listFormSet 属性 renderChild 支持 function 支持序号：fieldIndex
 3. Gform 组件 renderChild 支持 function 参数为 formSet 对象
+
+- 1.1.8 新增 GDescriptions 组件
+- 1.1.9 GDescriptions 组件新增 ellipsis 组件支持
