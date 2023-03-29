@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { DownOutlined, UpOutlined } from '@ant-design/icons';
 import { Ellipsis } from '@dzo/com';
-import { Descriptions, Skeleton } from 'antd';
+import { Descriptions, Skeleton, Typography } from 'antd';
 import './index.less';
 
 export default ({
@@ -69,11 +69,9 @@ export default ({
                 <Descriptions.Item {...itemProps}>
                   {ellipsis ? (
                     dataSource?.[txtKey] ? (
-                      <Ellipsis
-                        placement="topLeft"
-                        title={dataSource?.[txtKey]}
-                        {...ellipsis}
-                      />
+                      <Typography.Paragraph rows={1} {...ellipsis}>
+                        {dataSource?.[txtKey] || '-'}
+                      </Typography.Paragraph>
                     ) : (
                       '-'
                     )
