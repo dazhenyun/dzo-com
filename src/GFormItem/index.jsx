@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Form, Select } from 'antd';
+import { getRegisterComponent } from '../core/globalConfig';
 import { validEmoji, mapTypeToComponent } from './util';
 import InputNum from './InputNum';
 
@@ -88,6 +89,11 @@ function GFormItem({ itemSet, column, labelBasicSpan, layout }) {
   } else {
     const { WrappedComponent, defaultProps = {}, childStyle, SubComponent } =
       mapTypeToComponent[componentType] || {};
+    let BaseWrappedComponent = WrappedComponent;
+
+    if (!BaseWrappedComponent && getRegisterComponent(type)) {
+      BaseWrappedComponent = getRegisterComponent(type);
+    }
 
     // 是否有子组件
     const isOptionFields = [
@@ -99,9 +105,9 @@ function GFormItem({ itemSet, column, labelBasicSpan, layout }) {
     ].includes(componentType);
     const [vauleKey = 'value', labelKey = 'label', uniqueKey] = models;
 
-    if (WrappedComponent) {
+    if (BaseWrappedComponent) {
       children = (
-        <WrappedComponent {...defaultProps} {...props}>
+        <BaseWrappedComponent {...defaultProps} {...props}>
           {isOptionFields
             ? optionsData.map(v => {
                 if (componentType === 'selectgroup') {
@@ -135,7 +141,7 @@ function GFormItem({ itemSet, column, labelBasicSpan, layout }) {
                 );
               })
             : null}
-        </WrappedComponent>
+        </BaseWrappedComponent>
       );
     }
   }
@@ -151,13 +157,6 @@ function GFormItem({ itemSet, column, labelBasicSpan, layout }) {
     </FormItem>
   );
 }
-GFormItem.propTypes = {
-  itemSet: PropTypes.object, // 表单字段配置项
-  gutter: PropTypes.oneOfType([PropTypes.object, PropTypes.number]), // 输入项之间的间隔
-  column: PropTypes.number, // 一行几列
-  labelBasicSpan: PropTypes.number, // label占比
-  layout: PropTypes.string, // label占比
-};
 
 GFormItem.defaultProps = {
   itemSet: {},

@@ -12,7 +12,10 @@ import Ellipsis from './Ellipsis';
 import Icon from './Icon';
 import iconList from './Icon/iconList';
 import GDescriptions from './GDescriptions';
+import RootContainer from './RootContainer';
+import SearchForm from './SearchForm';
 
+export * from './core';
 export {
   ComIcon,
   TableBtns,
@@ -28,4 +31,6 @@ export {
   Icon,
   iconList,
   GDescriptions,
+  RootContainer,
+  SearchForm,
 };

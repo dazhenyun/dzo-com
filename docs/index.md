@@ -2,10 +2,24 @@
 
 ## 历史版本信息
 
-##### 1.0.2 新增 Ellipsis 组件
+- 1.0.2 新增 Ellipsis 组件
+- 1.0.5 修复 GForm 的 hideInForm = true Col 占位
+- 1.0.8 TableBtns 新增单个按钮
+- 1.1.0 SearchTree 新增默认参数`expandedLevel = null`时不展开字节点，搜索清空默认展示选中的父级节点
+- 1.1.1 npm 发布命令修改`npm run release`(会导致提交成功但是提示错误)中原先`npm run publish`改为`npm run pub`
+- 1.1.4 修复 SearchTree 组件不支持 loadData 异步加载数据
+- 1.1.5 修复 SearchTree 组件 onSelect，onCheck 丢失原始参数
+- 1.1.6 新增 SearchTree 组件 onRightClickRender 方法新增 onCopy 复制函数
+- 1.1.7
 
-##### 1.0.5 修复 GForm 的 hideInForm = true Col 占位
+1. TableBtns.AuthBtn 组件修改 type=button 支持 confirm
+2. DynamicFieldSet 组件新增 okButtonRender 属性 listFormSet 属性 renderChild 支持 function 支持序号：fieldIndex
+3. Gform 组件 renderChild 支持 function 参数为 formSet 对象
 
-##### 1.0.8 TableBtns.AuthBtn 新增单个按钮
+- 1.1.8 新增 GDescriptions 组件
+- 1.1.9 GDescriptions 组件新增 ellipsis 组件支持
+- 1.1.10
 
-##### 1.0.9 TableBtns.AuthBtn 按钮新增 tooltip 提示
+1. 新增 registerComponent 全局表单组件注入函数
+2. 新增 DZ.registerExternal 扩展方法，以及 DZ.external 扩展调用函数
+3. 新增 SearchForm 组件

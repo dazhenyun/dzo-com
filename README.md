@@ -52,3 +52,8 @@ $ npm run release
 
 - 1.1.8 新增 GDescriptions 组件
 - 1.1.9 GDescriptions 组件新增 ellipsis 组件支持
+- 1.1.10
+
+1. 新增 registerComponent 全局表单组件注入函数
+2. 新增 DZ.registerExternal 扩展方法，以及 DZ.external 扩展调用函数
+3. 新增 SearchForm 组件

@@ -1,3 +1,12 @@
+---
+title: ModalForm - 弹框表单
+nav:
+  title: 组件
+  path: /comp
+group:
+  path: /comp
+---
+
 ## 表单弹窗
 
 ### 修改密码
