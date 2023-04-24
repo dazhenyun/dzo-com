@@ -1,6 +1,6 @@
 {
   "name": "@dzo/com",
-  "version": "1.0.10",
+  "version": "1.1.10",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
@@ -36,10 +36,7 @@
     "@ant-design/icons": "^4.2.2",
     "@ctrl/tinycolor": "^3.6.0",
     "classnames": "^2.2.6",
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0",
     "@dzo/utils": "^1.0.4",
-    "antd": "^4.24.4",
     "copy-to-clipboard": "^3.3.1",
     "eslint-plugin-html": "^6.1.1",
     "install-peers": "^1.0.4",
@@ -58,6 +55,8 @@
     "yorkie": "^2.0.0"
   },
   "peerDependencies": {
-
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "antd": "^4.16.13"
   }
 }
