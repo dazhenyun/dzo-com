@@ -98,6 +98,9 @@ const mapTypeToComponent = {
     defaultProps: {
       placeholder: '请输入',
       autoComplete: 'new-password',
+      style: {
+        width: '100%',
+      },
     },
   },
   numrange: {
@@ -111,6 +114,9 @@ const mapTypeToComponent = {
     defaultProps: {
       placeholder: '请选择',
       allowClear: true,
+      style: {
+        width: '100%',
+      },
     },
     SubComponent: Option,
   },
@@ -119,6 +125,9 @@ const mapTypeToComponent = {
     defaultProps: {
       placeholder: '请选择',
       allowClear: true,
+      style: {
+        width: '100%',
+      },
     },
     SubComponent: Option,
   },

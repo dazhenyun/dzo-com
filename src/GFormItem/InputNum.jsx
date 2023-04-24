@@ -29,6 +29,7 @@ const InputNum = ({
           'g-input-number-after': !!addonAfter || !!suffix,
         })}
         precision={2}
+        placeholder="请输入"
         style={{ flex: 1, ...style }}
         {...rest}
       />
