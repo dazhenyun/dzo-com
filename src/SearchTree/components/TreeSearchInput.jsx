@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useMemo, useRef } from 'react';
 import { Tree, Input, Empty, Button, Menu, Popover } from 'antd';
-import { keyBy, uniq } from 'lodash';
 import { SearchOutlined } from '@ant-design/icons';
 
 const TreeSearchInput = ({ placeholder, onSearch, value }) => {

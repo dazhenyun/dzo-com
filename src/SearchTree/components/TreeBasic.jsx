@@ -23,6 +23,7 @@ function TreeBasic({
   iconRender,
   onRightClickRender,
   toolBarRender,
+  titleRender,
   onCheck,
   searchValue,
   onBack,
@@ -193,7 +194,10 @@ function TreeBasic({
           menuBtns={menuBtns}
           itemKey={item[keyField]}
         >
-          <span {...nodeTitleProps}>{item[nameField]}</span>
+          <span {...nodeTitleProps}>
+            {titleRender?.(item?.[nameField], item, { onCopy }) ||
+              item[nameField]}
+          </span>
         </RightMenuPop>
       );
 
