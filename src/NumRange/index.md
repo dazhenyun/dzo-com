@@ -1,3 +1,12 @@
+---
+title: NumRange - 数字区间组件
+nav:
+  title: 组件
+  path: /comp
+group:
+  path: /comp
+---
+
 ## 数字区间组件
 
 Demo:

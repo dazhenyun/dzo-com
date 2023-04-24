@@ -2,7 +2,6 @@ import React, { useRef, useEffect } from 'react';
 import { Button, Modal } from 'antd';
 import PropTypes from 'prop-types';
 import GForm from '../GForm';
-import { before } from 'lodash';
 
 const defaultFormProps = {
   column: 1,
@@ -27,6 +26,7 @@ const ModalForm = ({
   const childFormRef = useRef();
   const modalProps = {
     visible,
+    open: visible,
     maskClosable: false,
     onCancel,
     cancelText: '取消',

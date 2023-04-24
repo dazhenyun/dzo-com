@@ -1,3 +1,12 @@
+---
+title: TableBtns - 操作按钮组
+nav:
+  title: 组件
+  path: /comp
+group:
+  path: /comp
+---
+
 ## 列表操作按钮
 
 Demo:

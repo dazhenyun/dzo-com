@@ -1,3 +1,12 @@
+---
+title: GDescriptions - 描述列表
+nav:
+  title: 组件
+  path: /comp
+group:
+  path: /comp
+---
+
 ## 没有标题描述
 
 Demo:

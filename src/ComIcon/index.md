@@ -1,3 +1,12 @@
+---
+title: ComIcon - 图标
+nav:
+  title: 组件
+  path: /comp
+group:
+  path: /comp
+---
+
 # 自定义 icon
 
 ## 结合 iconfont 使用

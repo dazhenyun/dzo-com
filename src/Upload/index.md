@@ -1,3 +1,12 @@
+---
+title: Upload - 文件上传组件
+nav:
+  title: 组件
+  path: /comp
+group:
+  path: /comp
+---
+
 # 文件上传组件
 
 ## 单文件或多文件组件上传

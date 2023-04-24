@@ -1,3 +1,12 @@
+---
+title: GForm - 表单组件
+nav:
+  title: 组件
+  path: /comp
+group:
+  path: /comp
+---
+
 # 表单组件
 
 ## 登录表单
@@ -5,7 +14,9 @@
 ```jsx
 import React from 'react';
 import { Button } from 'antd';
-import { GForm } from '@dzo/com';
+import { GForm, Money, registerComponent } from '@dzo/com';
+const { MoneyInput } = Money.set(100);
+registerComponent({ moneyInput: MoneyInput });
 
 export default () => {
   const props = {
@@ -14,12 +25,16 @@ export default () => {
         type: 'input',
         label: '用户名',
         name: 'username',
-        hideInForm: true,
       },
       {
         type: 'password',
         label: '密码',
         name: 'password',
+      },
+      {
+        type: 'moneyInput',
+        label: '密码',
+        name: 'money',
       },
     ],
     column: 1,

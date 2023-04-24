@@ -1,3 +1,12 @@
+---
+title: DynamicFieldSet - 动态列表增删组件
+nav:
+  title: 组件
+  path: /comp
+group:
+  path: /comp
+---
+
 ## 动态列表增删组件
 
 ## 配置式使用:

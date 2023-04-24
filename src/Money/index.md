@@ -1,3 +1,12 @@
+---
+title: Money - 金额组件
+nav:
+  title: 组件
+  path: /comp
+group:
+  path: /comp
+---
+
 ## 金额组件
 
 展示:
