@@ -1,5 +1,5 @@
 import { useState, useMemo, useRef, useEffect } from 'react';
-import { DownOutlined, UpOutlined } from '@ant-design/icons';
+import { DownOutlined, UpOutlined, SearchOutlined } from '@ant-design/icons';
 import { Button, Col, Row, Space } from 'antd';
 import { GFormItem, GForm } from '@dzo/com';
 import './index.less';
@@ -60,7 +60,7 @@ export default ({
           </Col>
         );
       });
-  }, [columns, expand]);
+  }, [columns, expand, column]);
 
   useEffect(() => {
     if (formRef && !formRef.current) {
@@ -110,6 +110,7 @@ export default ({
         <Col className="search-btn">
           <Space>
             <Button
+              type="link"
               onClick={() => {
                 actionRef.current?.resetFields();
                 onReset?.();
@@ -117,7 +118,12 @@ export default ({
             >
               {resetText}
             </Button>
-            <Button type="primary" htmlType="submit" loading={loading}>
+            <Button
+              type="primary"
+              htmlType="submit"
+              icon={<SearchOutlined />}
+              loading={loading}
+            >
               {searchText}
             </Button>
             {!hasCollapse ? (
