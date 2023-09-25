@@ -33,6 +33,7 @@ function TreeBasic({
   selectedKeys,
   expandedLevel = 1, // 默认展开第几层 null: 默认关闭，不展开
   showLine = false,
+  isRoot = false, // 默认获取不会带上上级节点
   ...restProps
 }) {
   const {
@@ -48,6 +49,35 @@ function TreeBasic({
   const [selfCheckedKeys, setSelfCheckedKeys] = useState([]);
   const [coordInfo, setCoordInfo] = useState({});
   const rightPanelRef = useRef();
+
+  // 获取树的叶子节点
+  const leafKeys = useMemo(() => {
+    const arr = [];
+    const getLeafKeys = data => {
+      data?.forEach(item => {
+        const children = item?.[childrenField];
+        if (children?.length > 0) {
+          getLeafKeys(children);
+        } else {
+          arr.push(item.key);
+        }
+        return null;
+      });
+      return arr;
+    };
+    return getLeafKeys(treeData);
+  }, [treeData]);
+
+  useEffect(() => {
+    if (isRoot) {
+      let newKeys = [];
+      // 过滤出非父节点
+      if (checkedKeys) {
+        newKeys = leafKeys.filter(el => checkedKeys.includes(el));
+      }
+      setSelfCheckedKeys(newKeys);
+    }
+  }, [checkedKeys, leafKeys, isRoot]);
 
   const dataList = useMemo(
     () => getDataList(treeData, keyField, nameField, childrenField),
