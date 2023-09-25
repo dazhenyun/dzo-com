@@ -76,12 +76,10 @@ export default () => (
       },
       {
         title: '描述',
-        colSize: 1,
         dataIndex: 'description',
       },
       {
         title: '使用说明',
-        colSize: 1,
         dataIndex: 'guide',
       },
     ]}
@@ -159,12 +157,10 @@ export default () => (
       },
       {
         title: '描述',
-        colSize: 1,
         dataIndex: 'description',
       },
       {
         title: '使用说明',
-        colSize: 1,
         dataIndex: 'guide',
       },
     ]}
@@ -229,6 +225,9 @@ export default () => (
       },
       {
         title: '所属数据库',
+        props: {
+          span: 2,
+        },
         dataIndex: 'sourceName',
       },
       {
@@ -238,7 +237,6 @@ export default () => (
           span: 2,
         },
       },
-
       {
         title: '是否隐藏',
         dataIndex: 'isHide',
@@ -257,8 +255,11 @@ export default () => (
         },
       },
       {
-        title: '使用说明',
+        title: '使用说明1',
         dataIndex: 'guide',
+        props: {
+          span: 2,
+        },
       },
     ]}
   />

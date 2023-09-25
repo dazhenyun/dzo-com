@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { DownOutlined, UpOutlined } from '@ant-design/icons';
-import { Ellipsis } from '@dzo/com';
 import { Descriptions, Skeleton, Typography } from 'antd';
 import './index.less';
 
@@ -65,6 +64,7 @@ export default ({
                 ...props,
                 ...el,
               };
+              console.log('itemProps', itemProps);
               return (
                 <Descriptions.Item {...itemProps}>
                   {ellipsis ? (
