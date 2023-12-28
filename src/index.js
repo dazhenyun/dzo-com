@@ -14,6 +14,7 @@ import iconList from './Icon/iconList';
 import GDescriptions from './GDescriptions';
 import RootContainer from './RootContainer';
 import SearchForm from './SearchForm';
+import DrawerForm from './DrawerForm';
 
 export * from './core';
 export {
@@ -33,4 +34,5 @@ export {
   GDescriptions,
   RootContainer,
   SearchForm,
+  DrawerForm,
 };
