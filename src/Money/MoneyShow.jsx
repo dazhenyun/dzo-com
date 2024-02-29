@@ -1,6 +1,6 @@
 import React from 'react';
-import { Statistic } from 'antd';
-import classnames from 'classnames';
+import { Statistic, theme } from 'antd';
+import { createStyles } from 'antd-style';
 import { accDiv } from './util';
 import './index.less';
 
@@ -15,6 +15,33 @@ function toDecimal(x, precision) {
   return f;
 }
 
+const useStyles = createStyles(({ token, css }) => ({
+  'g-statistic-green': css`
+    .ant-statistic-content-prefix,
+    .ant-statistic-content-value {
+      color: ${token.colorSuccess};
+    }
+  `,
+  'g-statistic-red': css`
+    .ant-statistic-content-prefix,
+    .ant-statistic-content-value {
+      color: ${token.colorError};
+    }
+  `,
+  'g-statistic-primary': css`
+    .ant-statistic-content-prefix,
+    .ant-statistic-content-value {
+      color: ${token.colorPrimary};
+    }
+  `,
+  'g-statistic-orange': css`
+    .ant-statistic-content-prefix,
+    .ant-statistic-content-value {
+      color: ${token.colorWarning};
+    }
+  `,
+}));
+
 const MoneyShow = dividend => ({
   prefix = '￥',
   value = 0,
@@ -26,13 +53,14 @@ const MoneyShow = dividend => ({
   align, // 'horizontal '
   ...rest
 }) => {
+  const { styles, cx } = useStyles();
   return (
     <Statistic
-      className={classnames(className, 'g-statistic', {
+      className={cx(className, 'g-statistic', {
         ['g-statistic-bold']: bold,
         [`g-statistic-${size}`]: !!size,
-        [`g-statistic-${color}`]: !!color,
-        [`g-statistic-${align}`]: !!align,
+        [styles[`g-statistic-${color}`]]: !!color,
+        [`g-statistic-${align} `]: !!align,
       })}
       prefix={prefix}
       value={
