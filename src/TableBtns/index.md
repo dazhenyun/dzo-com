@@ -26,6 +26,7 @@ const buttons = [
   {
     type: 'confirm',
     name: '删除',
+    auth: false,
     confirmText: '确认删除',
     method: () => {
       message.success('删除点击事件');
@@ -70,7 +71,6 @@ const buttons = [
       {
         type: 'download',
         name: '下载1',
-
         auth: false,
         fileName: 'test.csv',
         pathname: 'http://www.baidu.com',
@@ -109,6 +109,7 @@ const AuthBtn = {
   props: {
     type: 'primary',
   },
+  auth: false,
   method: () => {
     message.success('设置点击事件');
   },
@@ -118,6 +119,7 @@ const AuthBtnDel = {
   name: '删除',
   type: 'button',
   tooltip: '删除',
+  auth: false,
   confirmText: '您确定要删除吗',
   props: {
     type: 'primary',
@@ -128,12 +130,10 @@ const AuthBtnDel = {
 };
 
 const AuthBtnIcon = {
-  name: '',
-  type: 'button',
+  name: '下载',
   tooltip: '下载',
   props: {
     type: 'link',
-    icon: <DownloadOutlined />,
   },
   method: () => {
     message.success('设置点击事件');
@@ -152,6 +152,7 @@ const AuthBtnMore = {
     {
       type: 'confirm',
       name: '删除1',
+      auth: false,
       method: () => {
         message.success('删除点击事件');
       },
@@ -159,8 +160,6 @@ const AuthBtnMore = {
     {
       type: 'download',
       name: '下载1',
-
-      auth: false,
       fileName: 'test.csv',
       pathname: 'http://www.baidu.com',
     },
