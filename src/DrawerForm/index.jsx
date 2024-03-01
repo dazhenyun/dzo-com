@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { Button, Drawer } from 'antd';
+import { Button, Drawer, Space } from 'antd';
 import PropTypes from 'prop-types';
 import GForm from '../GForm';
 
@@ -16,11 +16,15 @@ const DrawerForm = ({
   onValuesChange,
   visible,
   onOk,
-  onClose,
+  onCancel,
   formProps,
   formRef,
   beforeRender,
   afterRender,
+  cancelText = '取消',
+  okText = '保存',
+  okButtonProps,
+  cancelButtonProps,
   ...restProps
 }) => {
   const childFormRef = useRef();
@@ -28,13 +32,34 @@ const DrawerForm = ({
     visible,
     open: visible,
     maskClosable: false,
-    onClose,
-    cancelText: '取消',
+    onClose: onCancel,
     placement: 'right',
-    okText: '保存',
     onOk: () => {
       childFormRef.current.onValidate(onOk);
     },
+    footer: (
+      <>
+        <Space>
+          <Button
+            type={'primary'}
+            onClick={() => {
+              childFormRef.current.onValidate(onOk);
+            }}
+            {...okButtonProps}
+          >
+            {okText}
+          </Button>
+          <Button
+            onClick={() => {
+              onCancel?.();
+            }}
+            {...cancelButtonProps}
+          >
+            {cancelText}
+          </Button>
+        </Space>
+      </>
+    ),
     ...restProps,
   };
 
@@ -110,6 +135,8 @@ DrawerForm.propTypes = {
 
 DrawerForm.defaultProps = {
   formProps: {},
+  okButtonProps: {},
+  cancelButtonProps: {},
 };
 
 export default DrawerForm;

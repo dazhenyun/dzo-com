@@ -7,7 +7,6 @@ import {
   initCustomThemeColor,
 } from '../core/globalConfig';
 import zhCN from 'antd/es/locale/zh_CN';
-import '../base.less';
 /**
  * 获取默认主题
  */
@@ -16,7 +15,7 @@ function getDefaultTheme() {
 
   return Object.assign(
     {
-      primaryColor: color,
+      colorPrimary: color,
     },
     depUtil.external.getDefaultTheme(),
   );
@@ -30,9 +29,13 @@ function useDefaultTheme() {
   if (!themeRef.current) {
     themeRef.current = getDefaultTheme();
     if (themeRef.current) {
-      themeRef.current?.primaryColor !== BaseColor &&
+      themeRef.current?.colorPrimary !== BaseColor &&
         ConfigProvider.config({
-          theme: themeRef.current,
+          theme: {
+            token: {
+              ...themeRef.current,
+            },
+          },
         });
       // initCustomThemeColor(themeRef.current?.primaryColor);
     }

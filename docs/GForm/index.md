@@ -157,21 +157,21 @@ export default () => {
 
 如果目前的组件类型无法满足，可以自定义组件结合，组件需配置 value、onChange
 
-<code src="./CustomDemo.jsx" />
+<code src="./CustomDemo.jsx" ></code>
 
 ## 输入项之间的联动
 
-<code src="./Linkage.jsx" />
+<code src="./Linkage.jsx" ></code>
 
 ## 组件类型所有示例
 
-<code src="./AllComDemo.jsx" />
+<code src="./AllComDemo.jsx" ></code>
 
 ## 多表单组合
 
 有时候可能因为表单的样式问题，需要呈现卡片的感觉
 
-<code src="./FormGroups.jsx" />
+<code src="./FormGroups.jsx" ></code>
 
 ## API
 

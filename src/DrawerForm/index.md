@@ -1,5 +1,5 @@
 ---
-title: ModalForm - 弹框表单
+title: DrawerForm - 搜索框表单
 nav:
   title: 组件
   path: /comp
@@ -14,7 +14,7 @@ group:
 ```jsx
 import React, { useState } from 'react';
 import { message, Button, Alert } from 'antd';
-import { ModalForm } from '@dzo/com';
+import { DrawerForm } from '@dzo/com';
 
 export default () => {
   const [visible, setVisible] = useState(false);
@@ -92,7 +92,7 @@ export default () => {
       >
         修改密码
       </Button>
-      <ModalForm {...props} />
+      <DrawerForm {...props} />
     </>
   );
 };
