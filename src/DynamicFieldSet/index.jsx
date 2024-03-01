@@ -2,8 +2,19 @@ import React from 'react';
 import { Form, Button, Row, Col } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import PropTypes from 'prop-types';
+import { createStyles } from 'antd-style';
 import GFormItem from '../GFormItem';
 import './index.less';
+
+const useStyles = createStyles(({ token, css }) => ({
+  'dynamic-header': css`
+    background: ${token.headerBg};
+    border-bottom: 1px solid ${token.colorBorder};
+  `,
+  'dynamic-header-cell': css`
+    color: ${token.colorTextBase};
+  `,
+}));
 
 const DynamicFieldSet = ({
   name,
@@ -13,13 +24,15 @@ const DynamicFieldSet = ({
   hasDel = true,
   okButtonRender,
 }) => {
+  const { styles, cx } = useStyles();
+
   return (
     <Form.List name={name}>
       {(fields, { add, remove }) => {
         return (
           <div>
             {hasHead && (
-              <Row className="dynamic-header">
+              <Row className={cx('dynamic-header', styles['dynamic-header'])}>
                 <Col flex={1}>
                   <Row gutter={8}>
                     {listFormSet.map(itemSet => {
@@ -103,15 +116,13 @@ const DynamicFieldSet = ({
                 {/* 删除按钮 */}
                 {hasDel && (
                   <Col flex="none" className="dynamic-header-cell">
-                    <div style={{ width: '80px' }}>
-                      <MinusCircleOutlined
-                        className="dynamic-delete-button"
-                        style={{ margin: '0 8px' }}
-                        onClick={() => {
-                          remove(field.name);
-                        }}
-                      />
-                    </div>
+                    <Button
+                      type="link"
+                      onClick={() => {
+                        remove(field.name);
+                      }}
+                      icon={<MinusCircleOutlined />}
+                    />
                   </Col>
                 )}
               </Row>
