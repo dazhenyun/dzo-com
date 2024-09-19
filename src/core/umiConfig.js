@@ -44,9 +44,6 @@ export default options => {
         disableModelsReExport: true,
         lazyLoad: true,
       },
-      dynamicImport: {
-        loading: '@/components/pageLoading',
-      },
       terserOptions: {},
     },
     options,

@@ -15,6 +15,7 @@ import GDescriptions from './GDescriptions';
 import RootContainer from './RootContainer';
 import SearchForm from './SearchForm';
 import EditSelect from './EditSelect';
+import DrawerForm from './DrawerForm';
 
 export * from './core';
 export {
@@ -35,4 +36,5 @@ export {
   RootContainer,
   SearchForm,
   EditSelect,
+  DrawerForm,
 };
