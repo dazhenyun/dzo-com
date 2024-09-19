@@ -14,6 +14,7 @@ import iconList from './Icon/iconList';
 import GDescriptions from './GDescriptions';
 import RootContainer from './RootContainer';
 import SearchForm from './SearchForm';
+import EditSelect from './EditSelect';
 
 export * from './core';
 export {
@@ -33,4 +34,5 @@ export {
   GDescriptions,
   RootContainer,
   SearchForm,
+  EditSelect,
 };
