@@ -16,7 +16,7 @@ import RootContainer from './RootContainer';
 import SearchForm from './SearchForm';
 import EditSelect from './EditSelect';
 import DrawerForm from './DrawerForm';
-
+import DzRotate from './DzRotate';
 export * from './core';
 export {
   ComIcon,
@@ -37,4 +37,5 @@ export {
   SearchForm,
   EditSelect,
   DrawerForm,
+  DzRotate
 };

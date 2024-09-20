@@ -12,16 +12,17 @@ group:
 ### 修改密码
 
 ```jsx
-import React, { useState } from 'react';
+import React, { useState ,useRef} from 'react';
 import { message, Button, Alert } from 'antd';
 import { ModalForm } from '@dzo/com';
 
 export default () => {
   const [visible, setVisible] = useState(false);
-
+  const formRef = useRef(null);
   const props = {
     visible,
     title: '修改密码',
+    formRef,
     initialValues: { id: 1 },
     formSet: [
       {
@@ -71,6 +72,7 @@ export default () => {
     },
     onOk: values => {
       console.log(values);
+      console.log('formRef',formRef.current.getFieldsValue());
     },
     beforeRender: () => (
       <Alert
