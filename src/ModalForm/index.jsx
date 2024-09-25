@@ -15,6 +15,7 @@ const ModalForm = ({
   loading,
   onValuesChange,
   visible,
+  open,
   onOk,
   onCancel,
   formProps,
@@ -26,7 +27,7 @@ const ModalForm = ({
   const childFormRef = useRef();
   const modalProps = {
     visible,
-    open: visible,
+    open,
     maskClosable: false,
     onCancel,
     cancelText: '取消',
@@ -47,15 +48,15 @@ const ModalForm = ({
   };
 
   useEffect(() => {
-    if (visible && formRef && !formRef.current) {
+    if ((visible || open) && formRef && !formRef.current) {
       setTimeout(() => {
         formRef.current = { ...childFormRef.current };
       });
     }
-    if (!visible) {
+    if (!(visible || open)) {
       childFormRef?.current?.resetFields();
     }
-  }, [visible]);
+  }, [visible, open]);
 
   return (
     <Modal {...modalProps}>
@@ -92,6 +93,10 @@ ModalForm.propTypes = {
    * 弹窗显示
    */
   visible: PropTypes.bool,
+  /**
+   * 弹窗显示
+   */
+  open: PropTypes.bool,
   /**
    * 保存按钮的回调
    */
