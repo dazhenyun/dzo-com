@@ -64,3 +64,8 @@ $ npm run release
 1. 新增 registerComponent 全局表单组件注入函数
 2. 新增 DZ.registerExternal 扩展方法，以及 DZ.external 扩展调用函数
 3. 新增 SearchForm 组件
+
+- 2.0.6
+
+1. 新增 DzRotate 滚动列表组件
+2. 修复 ModalForm ref 取值问题

@@ -1,6 +1,6 @@
 {
   "name": "@dzo/com",
-  "version": "2.0.4",
+  "version": "2.0.6",
   "scripts": {
     "prepare": "dumi setup",
     "start": "dumi dev",
@@ -39,6 +39,7 @@
     "@dzo/utils": "^1.0.4",
     "antd-style": "^3.6.1",
     "classnames": "^2.2.6",
+    "compression-webpack-plugin": "^11.1.0",
     "copy-to-clipboard": "^3.3.1",
     "eslint-plugin-html": "^6.1.1",
     "install-peers": "^1.0.4",
